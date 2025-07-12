@@ -46,7 +46,6 @@ For each prompt, the pipeline produces:
 
 Citation
 
-If you use this codebase, please cite the following:
 - Ghosh et al., *GENEVAL: An Object-Focused Framework for Evaluating Text-to-Image Alignment* (2023)
 - Farquhar et al., *Detecting hallucinations in large language models using semantic entropy* (2024)
 - Franchi et al., *Towards Understanding and Quantifying Uncertainty for Text-to-Image Generation* (2024)
