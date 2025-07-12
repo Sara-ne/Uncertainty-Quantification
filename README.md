@@ -14,13 +14,13 @@ Key Contributions
 Setup Instructions
 
 1. **Clone this repository**:
-git clone https://github.com/Sara-ne/Uncertainty-Quantification.git
-cd Uncertainty-Quantification
+- git clone https://github.com/Sara-ne/Uncertainty-Quantification.git
+- cd Uncertainty-Quantification
 
 2. **Clone and install GenEval** (required for correctness evaluation):
-git clone https://github.com/djghosh13/geneval.git
-cd geneval
-pip install -e .
+- git clone https://github.com/djghosh13/geneval.git
+- cd geneval
+- pip install -e .
 
 Make sure the `geneval/` folder is either in this project directory or added to your Python path.
 
