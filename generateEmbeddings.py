@@ -17,26 +17,6 @@ class CLIPEmbeddingExtractor:
             embeddings = self.model.encode_image(image_tensors)
         return embeddings.cpu().numpy()
 
-    def get_image_probability(self, image, candidate_labels=None):
-        if candidate_labels is None:
-            candidate_labels = [
-                "a photo of a cat", "a photo of a dog", "a photo of a car",
-                "a photo of a person", "a photo of a tree"
-            ]
-        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
-        tokenized = self.tokenizer(candidate_labels).to(self.device)
-
-        with torch.no_grad():
-            image_features = self.model.encode_image(image_tensor)
-            text_features = self.model.encode_text(tokenized)
-
-            image_features /= image_features.norm(dim=-1, keepdim=True)
-            text_features /= text_features.norm(dim=-1, keepdim=True)
-
-            logits = image_features @ text_features.T
-            probs = logits.softmax(dim=-1).squeeze().cpu().numpy()
-        return probs
-
     def get_clip_similarity_scores(self, prompt, images):
         image_tensors = torch.stack([self.preprocess(img) for img in images]).to(self.device)
         text_tokens = self.tokenizer([prompt]).to(self.device)
