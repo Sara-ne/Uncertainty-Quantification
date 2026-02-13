@@ -17,14 +17,15 @@ Setup Instructions
 - git clone https://github.com/Sara-ne/Uncertainty-Quantification.git
 - cd Uncertainty-Quantification
 
-2. **Clone and install GenEval** (required for correctness evaluation):
+2. **Install dependencies**:
+- pip install -r requirements.txt
+
+3. **Clone and install GenEval** (required for correctness evaluation):
 - git clone https://github.com/djghosh13/geneval.git
-- cd geneval
-- pip install -e .
 
 Make sure the `geneval/` folder is either in this project directory or added to your Python path.
 
-3. **Download models**:
+4. **Download models**:
 - Stable Diffusion v1.5
 - BLIP (image captioning)
 - CLIP via openai/clip
