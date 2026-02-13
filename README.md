@@ -24,8 +24,8 @@ CUDA-enabled GPU recommended (tested with CUDA 11.3)
 - cd Uncertainty-Quantification
 
 2. **Create virtual environment**:
-python -m venv venv
-source venv/bin/activate
+- python -m venv venv
+- source venv/bin/activate
 
 3. **Install dependencies**:
 - pip install -r requirements.txt
@@ -55,8 +55,9 @@ This will:
 - save results and ROC curves
 
 
+---
 
-Output Overview
+# Output Overview
 
 The pipeline produces:
 - Generated images → generated_images/
@@ -72,8 +73,9 @@ Metrics include:
 - BERTScore
 - ROUGE
 
+---
 
-Citation
+# Citation
 
 - Ghosh et al., *GENEVAL: An Object-Focused Framework for Evaluating Text-to-Image Alignment* (2023)
 - Farquhar et al., *Detecting hallucinations in large language models using semantic entropy* (2024)
