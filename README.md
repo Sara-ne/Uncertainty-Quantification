@@ -1,8 +1,8 @@
-Uncertainty Evaluation for Text-to-Image Generation
+# Uncertainty Evaluation for Text-to-Image Generation
 
 This project investigates how to quantify uncertainty in text-to-image (T2I) models like Stable Diffusion. It combines image-based and text-based semantic entropy with predictive uncertainty decomposition using the [GenEval](https://github.com/djghosh13/geneval) framework.
 
-Key Contributions
+# Key Contributions
 
 - Adapted the **semantic entropy** method (originally for text) to evaluate distributional uncertainty in T2I outputs.
 - Used **GenEval** to label generated images as correct/incorrect based on prompt-object alignment (type, count, position, and attributes).
@@ -11,7 +11,9 @@ Key Contributions
   - **Epistemic Uncertainty** (model knowledge gaps)
 - Performed quantitative and qualitative analyses of uncertainty metrics on a structured prompt dataset.
 
-Setup Instructions
+---
+
+# Setup Instructions
 
 **Requirements**
 Python 3.9 or 3.10 recommended
