@@ -13,36 +13,62 @@ Key Contributions
 
 Setup Instructions
 
+**Requirements**
+Python 3.9 or 3.10 recommended
+CUDA-enabled GPU recommended (tested with CUDA 11.3)
+
 1. **Clone this repository**:
 - git clone https://github.com/Sara-ne/Uncertainty-Quantification.git
 - cd Uncertainty-Quantification
 
-2. **Install dependencies**:
+2. **Create virtual environment**:
+python -m venv venv
+source venv/bin/activate
+
+3. **Install dependencies**:
 - pip install -r requirements.txt
 
-3. **Clone and install GenEval** (required for correctness evaluation):
-- git clone https://github.com/djghosh13/geneval.git
+4. **Clone and install GenEval** (required for correctness evaluation):
+- git clone https://github.com/djghosh13/geneval.git GenEval
+- cd GenEval
+- pip install -e .
 
-Make sure the `geneval/` folder is either in this project directory or added to your Python path.
+Make sure the `GenEval/` folder is either in this project directory or added to your Python path.
 
-4. **Download models**:
-- Stable Diffusion v1.5
-- BLIP (image captioning)
-- CLIP via openai/clip
+5. **Download GenEval evaluation checkpoints**:
+The evaluation stage requires Mask2Former checkpoints used by GenEval.
+Follow the instructions in:
+https://github.com/djghosh13/geneval
+Place checkpoints in: GenEval/checkpoints/
+
+6. **Running the pipeline**:
+Run the full pipeline:
+python run_pipeline.py
+
+This will:
+- sample 50 prompts
+- generate 15 images per prompt using Stable Diffusion v1.5
+- evaluate images with GenEval
+- compute uncertainty metrics
+- save results and ROC curves
 
 
 
 Output Overview
 
-For each prompt, the pipeline produces:
-- Correctness score via GenEval
-- Semantic entropy (based on CLIP embeddings and BLIP captions)
-- Aleatoric and epistemic uncertainty via PUNC
-- Additional metrics:
-  - CLIP Score Variance
-  - LPIPS Diversity
-  - BERTScore
-  - ROUGE
+The pipeline produces:
+- Generated images → generated_images/
+- Evaluation results → generated_eval_results.jsonl
+- Final metrics → GenEval/geneval_results.csv
+- ROC curves → PNG files
+Metrics include:
+- GenEval correctness score
+- Semantic entropy (CLIP embeddings + captions)
+- Aleatoric and epistemic uncertainty
+- CLIP score variance
+- LPIPS diversity
+- BERTScore
+- ROUGE
 
 
 Citation
