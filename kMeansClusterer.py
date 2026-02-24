@@ -11,9 +11,6 @@ class KMeansClusterer:
     def determine_optimal_k(self, embeddings, k_range=(2, 10)):
         """
         Finds the best number of clusters using the silhouette score.
-        :param embeddings: Image embeddings.
-        :param k_range: Range of K values to test.
-        :return: Optimal K value.
         """
         n_samples = embeddings.shape[0]
         min_k = max(2, min(k_range[0], n_samples - 1))
