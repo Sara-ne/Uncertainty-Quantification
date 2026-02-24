@@ -11,10 +11,6 @@ class PUNCUncertaintyCalculator:
     """
 
     def __init__(self, num_samples=10, epsilon=1e-6):
-        """
-        :param num_samples: Number of Monte Carlo samples for epistemic uncertainty.
-        :param epsilon: Small value to avoid numerical instability in entropy calculations.
-        """
         self.num_samples = num_samples
         self.epsilon = epsilon
 
@@ -22,8 +18,6 @@ class PUNCUncertaintyCalculator:
     def extract_concepts(text):
         """
         extract noun-based concepts from a sentence using lemmatization.
-        :param text:
-        :return:
         """
         doc = nlp(text.lower())
         return set(token.lemma_ for token in doc if token.pos_ == 'NOUN')
